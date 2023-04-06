@@ -27,7 +27,7 @@
 
 --Scrivere una query che elenchi per ogni riga il nome ed il cognome di ogni studente
 --con il corrispondente numero di corsi a cui è iscritto/a
-SELECT students.first_name, students.last_name, COUNT(courses.id) AS number_of_courses FROM CourseEnrollments
-INNER JOIN Students ON CourseEnrollments.student_id = Students.id
-INNER JOIN Courses ON CourseEnrollments.course_id = Courses.id
-GROUP BY CourseEnrollments.student_id;
+--SELECT students.first_name, students.last_name, COUNT(courses.id) AS number_of_courses FROM CourseEnrollments
+--INNER JOIN Students ON CourseEnrollments.student_id = Students.id
+--INNER JOIN Courses ON CourseEnrollments.course_id = Courses.id
+--GROUP BY CourseEnrollments.student_id;
