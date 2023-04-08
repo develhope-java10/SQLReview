@@ -1,3 +1,7 @@
-SELECT *
+SELECT Tutors.id, Tutors.first_name, Tutors.last_name
 FROM Tutors
-WHERE year_of_experience>=5;
+LEFT JOIN TutorsAssignment
+ON Tutors.id = TutorsAssignment.tutor_id
+WHERE year_of_experience>=5
+GROUP BY id
+HAVING COUNT(id) < 2;

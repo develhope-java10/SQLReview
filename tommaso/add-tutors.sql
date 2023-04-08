@@ -19,5 +19,7 @@ VALUES  ('Lorenzo', 'Catania', 6, 'Java 10'),
         ('Marco', 'Adriani', 2, 'SQL 15'),
         ('Luca',  'Reina', 5, 'Java 10');
 
+INSERT INTO Courses(name) VALUE('Spring');
+
 INSERT INTO TutorsAssignment(tutor_id, course_id)
 VALUES (1,1), (2,2), (1,3);
