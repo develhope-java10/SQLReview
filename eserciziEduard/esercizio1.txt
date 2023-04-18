@@ -1,0 +1,58 @@
+--1) Scrivere una query per elencare tutti gli studenti 
+--iscritti ad un corso che ha "Java" nel nome
+
+SELECT first_name, last_name, name
+FROM (SELECT * FROM Courses WHERE name LIKE '%Java%') AS JavaCourses
+
+JOIN CourseEnrollments ON JavaCourses.id = CourseEnrollments.course_id
+JOIN Students ON student_id = Students.id
+
+
+--2) Scrivere una query per elencare tutti i corsi con almeno 2 iscritti
+
+
+SELECT courses.name
+FROM courses
+
+JOIN courseenrollments ON courses.id = courseenrollments.course_id
+
+GROUP BY courses.id HAVING COUNT(DISTINCT courseenrollments.student_id) >= 2;
+
+
+--3) Scrivere una query per elencare tutti i corsi senza nessun iscritto
+
+
+SELECT courses.name
+FROM courses
+
+LEFT JOIN courseenrollments ON courses.id = courseenrollments.course_id
+
+WHERE courseenrollments.courses_id IS NULL;
+
+
+--4) Scrivere una query che elenchi per ogni riga il nome di ogni corso con 
+--il corrispondente numero di iscritti
+
+
+SELECT courses.name, COUNT(courseenrollments.student_id) AS num_iscritti
+FROM courses
+
+LEFT JOIN courseenrollments ON courses.id = courseenrollments.course_id
+
+GROUP BY courses.id;
+
+
+--5) Scrivere una query che elenchi per ogni riga il nome ed il cognome di 
+--ogni studente con il corrispondente numero di corsi a cui è iscritto/a
+
+
+SELECT students.first_name, students.last_name, COUNT(courseenrollments.course_id) AS num_corsi
+FROM students
+
+LEFT JOIN courseenrollments ON students.id = courseenrollments.student_id
+
+GROUP BY students.id;
+
+
+
+
