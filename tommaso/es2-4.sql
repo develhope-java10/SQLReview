@@ -4,4 +4,4 @@ LEFT JOIN TutorsAssignment
 ON Tutors.id = TutorsAssignment.tutor_id
 WHERE year_of_experience>=5
 GROUP BY id
-HAVING COUNT(id) < 2;
+HAVING COUNT = 1;
